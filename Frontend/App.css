@@ -1,0 +1,164 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #F8F0E3;
+  color: #333333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  color: #8A2BE2;
+}
+
+.calculator-grid {
+  display: grid;
+  /* 5 sütun: 4 ana sütun + sağdaki ince özel tuş sütunu */
+  grid-template-columns: repeat(4, 75px) 75px; 
+  /* 6 satır: 1 ekran satırı + 5 tuş satırı (görseldeki düzen için 5 satır tuş) */
+  grid-template-rows: minmax(90px, auto) repeat(5, 65px); 
+  background-color: #E6E6FA;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid #B0C4DE;
+}
+
+.output {
+  grid-column: 1 / -1; /* Tüm 5 sütunu kapla */
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: all;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: #333333;
+  font-weight: bold;
+}
+
+.output .previous-operand {
+  color: rgba(0, 0, 0, .5);
+  font-size: 1.1em;
+}
+
+.output .current-operand {
+  color: #333333;
+  font-size: 2em;
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 1.4em;
+  border: none;
+  outline: none;
+  background-color: #FFB6C1; /* Normal sayı tuşları için açık pembe */
+  color: #333333;
+  border-radius: 8px;
+  margin: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.calculator-grid > button:hover {
+  background-color: #FF9AA4;
+}
+
+.calculator-grid > button:active {
+    background-color: #FF828F;
+    transform: scale(0.98);
+}
+
+/* Operatörler (/, *, -) */
+.calculator-grid > .operator {
+    background-color: #FF8C00; /* Koyu Turuncu */
+    color: white;
+}
+
+.calculator-grid > .operator:hover {
+    background-color: #FF7F50;
+}
+.calculator-grid > .operator:active {
+    background-color: #FF6347;
+    transform: scale(0.98);
+}
+
+/* Kontrol Butonları (C, <=) */
+.calculator-grid > .control-button {
+  background-color: #FF8C00; /* Koyu Turuncu */
+  color: white;
+}
+
+.calculator-grid > .control-button:hover {
+    background-color: #FF7F50;
+}
+.calculator-grid > .control-button:active {
+    background-color: #FF6347;
+    transform: scale(0.98);
+}
+
+/* Eşittir (=) butonu */
+.calculator-grid > .equals-button {
+  background-color: #87CEEB; /* Gökyüzü Mavisi */
+  color: #333333;
+  grid-row: 4 / span 2; /* 4. satırdan başla (tuş satırları), 2 satır kapla */
+  grid-column: 5; /* 5. sütuna (en sağdaki) yerleş */
+}
+
+.calculator-grid > .equals-button:hover {
+    background-color: #7BCCEE;
+}
+.calculator-grid > .equals-button:active {
+    background-color: #6CAFE4;
+    transform: scale(0.98);
+}
+
+/* Artı (+) butonu */
+.calculator-grid > .plus-button { 
+  background-color: #FF8C00; /* Koyu Turuncu */
+  color: white;
+  grid-row: 2 / span 2; /* 2. satırdan başla, 2 satır kapla */
+  grid-column: 5; /* 5. sütuna (en sağdaki) yerleş */
+}
+.calculator-grid > .plus-button:hover {
+  background-color: #FF7F50;
+}
+.calculator-grid > .plus-button:active {
+  background-color: #FF6347;
+  transform: scale(0.98);
+}
+
+
+/* Artı/Eksi (+/-) butonu */
+.calculator-grid > .plus-minus {
+  background-color: #DA70D6; /* Koyu pembe/leylak */
+  color: white;
+}
+
+.calculator-grid > .plus-minus:hover {
+  background-color: #BF62D1;
+}
+.calculator-grid > .plus-minus:active {
+  background-color: #A950C2;
+  transform: scale(0.98);
+}
+
+/* Virgül (,) veya Ondalık (.) butonu */
+.calculator-grid > .decimal-button {
+  background-color: #FFB6C1; /* Normal sayılarla aynı açık pembe */
+  color: #333333;
+}
+
+.calculator-grid > .decimal-button:hover {
+  background-color: #FF9AA4;
+}
+.calculator-grid > .decimal-button:active {
+  background-color: #FF828F;
+  transform: scale(0.98);
+}

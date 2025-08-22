@@ -48,9 +48,11 @@ Bu proje, **tamamen yapay zeka** desteği ile geliştirilmiş modern bir hesap m
 - **Visual Studio Code** - Geliştirme ortamı
 
 ### Backend
-- **C# .NET Core** - Güçlü Web API backend
-- **ASP.NET Core** - RESTful API endpoints
-- **Entity Framework** - ORM ve veritabanı işlemleri
+- **ASP.NET Core 6.0** - Web API Framework
+- **Entity Framework Core** - Code First ORM
+- **SQL Server LocalDB** - Lightweight database
+- **Swagger/OpenAPI** - API documentation
+- **CORS** - Cross-origin resource sharing
 - **Visual Studio** - Profesyonel geliştirme IDE
 
 ### Veritabanı
@@ -77,10 +79,15 @@ dotnet build
 dotnet run
 ```
 
-2. **API'nin çalıştığını test edin**
-```bash
-curl http://localhost:5139/api/Hesaplama/gecmis
+2. **Swagger UI'ye erişin** (Development ortamında)
 ```
+https://localhost:[auto-port]/swagger
+```
+
+3. **Veritabanı otomatik oluşturulur**
+- LocalDB kullanılır: `(localdb)\\MSSQLLocalDB`
+- Database: `HesapMakinesiDb`
+- İlk çalıştırmada otomatik oluşturulur
 
 ### Frontend Kurulumu
 
@@ -98,16 +105,21 @@ http://localhost:3000
 
 ### Veritabanı Kurulumu
 ```sql
--- SQL Server'da yeni veritabanı oluşturun
-CREATE DATABASE HesapMakinesiDB;
+-- Veritabanı otomatik oluşturulur, manuel kurulum gerekmez!
+-- Ancak farklı bir SQL Server instance kullanmak isterseniz:
 
--- Connection string'i backend appsettings.json'da güncelleyin
+-- 1. SQL Server'da yeni veritabanı oluşturun
+CREATE DATABASE HesapMakinesiDb;
+
+-- 2. appsettings.json'daki connection string'i güncelleyin
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=HesapMakinesiDB;Trusted_Connection=true;"
+    "DefaultConnection": "Data Source=SERVER_NAME;Initial Catalog=HesapMakinesiDb;Integrated Security=True;"
   }
 }
 ```
+
+**Not**: LocalDB varsayılan olarak kullanılır ve otomatik kurulum yapılır.
 
 ## 📁 Proje Yapısı
 
@@ -245,9 +257,9 @@ Bu proje MIT lisansı altında açık kaynak kodludur.
 
 **[Kullanıcı Adınız]** - *AI-Assisted Full Stack Developer*
 
-- 🔗 GitHub: [@bberrakela](https://github.com/bberrakela)
-- 💼 LinkedIn: [https://www.linkedin.com/in/ela-berrak-tekin-86a817346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app]
-- 📧 Email: tekinelaberrak@gmail.com
+- 🔗 GitHub: [@kullaniciadi](https://github.com/kullaniciadi)
+- 💼 LinkedIn: [Profil Bağlantınız]
+- 📧 Email: your.email@example.com
 
 ## 🙏 Teşekkürler
 
